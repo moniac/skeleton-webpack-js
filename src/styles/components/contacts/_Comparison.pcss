@@ -1,0 +1,51 @@
+#contacts {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+
+  img {
+    display: block;
+    width: auto;
+  }
+}
+
+.divider {
+  border: 3px #30597b solid;
+  overflow: hidden;
+  position: relative;
+}
+
+.beforeImg {
+  border-right: 2px #30597b solid;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 50%;
+}
+
+.handle {
+  background-image: radial-gradient(#061b2c, #30597b);
+  border: 2px #30597b solid;
+  border-radius: 50%;
+  cursor: ew-resize;
+  height: 40px;
+  left: 50%;
+  margin: -2.5% 0 0 -2.5%;
+  position: absolute;
+  top: 50%;
+  transition: opacity 0.3s;
+  width: 40px;
+
+  &:hover {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+
+  &:active {
+    opacity: 0.2;
+    transform: scale(1.2);
+  }
+}

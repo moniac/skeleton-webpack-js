@@ -1,0 +1,113 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb-base"],
+
+  "plugins": [
+    "import"
+  ],
+
+  // Allow the following global variables
+  "env": {
+    // Node.js global variables and Node.js scoping.
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "jquery": true
+  },
+
+  "parserOptions": {
+    "allowImportExportEverywhere": false,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "modules": true
+    },
+    "sourceType": "module"
+  },
+
+  "rules": {
+    "strict": [2, "safe"],
+
+    /**
+     * ES6
+     */
+    "prefer-const": 0,
+    "prefer-template": 1,
+
+    /**
+     * Variables
+     */
+    "no-shadow": [2, {
+      "builtinGlobals": true,
+      "allow": ["require", "self", "name", "module"]
+    }],
+    "no-unused-vars": [2, {
+      "vars": "all",
+      "args": "after-used"
+    }],
+    "no-use-before-define": [2, "nofunc"],
+
+    /**
+     * Possible errors
+     */
+    "comma-dangle": [2, {
+      "arrays": "only-multiline",
+      "objects": "only-multiline"
+    }],
+    "no-inner-declarations": [2, "both"],
+    "no-multi-spaces": ["error", {
+      "exceptions": {
+        "ImportDeclaration": true,
+        "VariableDeclarator": true
+      }
+    }],
+    "function-paren-newline": ["warn", { "minItems": 4 }],
+
+    /**
+     * Best practices
+     */
+    "object-shorthand": [1, "always", { "avoidQuotes": true }],
+    "consistent-return": 0,
+    "curly": 2,
+    "dot-notation": [2, {
+      "allowKeywords": true,
+      "allowPattern": "^[a-z]+(_[a-z]+)+$"
+    }],
+    "eqeqeq": [2, "allow-null"],
+    "no-eq-null": 0,
+    "no-redeclare": [2, {
+      "builtinGlobals": true
+    }],
+    "wrap-iife": [2, "inside"],
+    "max-len": [2, 120, 2, {"ignoreUrls": true}],
+    "class-methods-use-this": 0,
+
+    /**
+     * Style
+     */
+    "indent": [2, 2, {
+      "VariableDeclarator": {
+        "var": 2,
+        "let": 2,
+        "const": 3
+      },
+      "SwitchCase": 1
+    }],
+    "quote-props": 1,
+    "func-names": 0,
+    "no-multiple-empty-lines": [2, {
+      "max": 1
+    }],
+    "no-extra-parens": [2, "functions"],
+    "one-var": 0,
+    "space-before-function-paren": [2, "never"],
+    "no-underscore-dangle": 0,
+    "no-useless-constructor": 0,
+    "arrow-parens": [2, "as-needed", { "requireForBlockBody": true }],
+
+    /**
+     * Import
+     */
+    "import/extensions": ["error", { "jsx": "always", "scss": "always", "pcss": "always", "css": "always" }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": false}]
+  }
+}

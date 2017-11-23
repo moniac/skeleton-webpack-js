@@ -1,0 +1,8 @@
+{
+  "extends": "clock",
+  "validateAttributeQuoteMarks": "\"",
+  "disallowLegacyMixinCall": true,
+  "validateTemplateString": true,
+  "validateIndentation": 2,
+  "disallowHtmlText": true
+}

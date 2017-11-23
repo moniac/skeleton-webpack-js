@@ -1,0 +1,68 @@
+:global .root {
+  &__form {
+    &__button {
+      padding: 5% 0;
+
+      .button {
+        background-color: transparent;
+        border: 2px solid hsl(164, 74%, 40%);
+        border-radius: 5px;
+        color: hsl(164, 74%, 40%);
+        cursor: pointer;
+        display: block;
+        font: 18px var(--font-text), sans-serif;
+        margin: 0 auto;
+        outline: none;
+        overflow: hidden;
+        padding: 5px 15%;
+        position: relative;
+        user-select: none;
+
+        &:before,
+        &:after {
+          background-color: hsl(164, 74%, 40%);
+          content: '';
+          height: 100%;
+          position: absolute;
+          top: 0;
+          width: 50%;
+          z-index: -1;
+        }
+
+        &:before {
+          left: -50%;
+          transition: left 150ms ease-out;
+        }
+
+        &:after {
+          right: -50%;
+          transition: right 150ms ease-out;
+        }
+
+        &:hover {
+          color: #fff;
+          font-weight: 900;
+
+          &:before {
+            left: 0;
+            transition: left 150ms ease-out;
+          }
+
+          &:after {
+            right: 0;
+            transition: right 150ms ease-out;
+          }
+        }
+
+        &:active {
+          transform: scale(0.95);
+
+          &:before,
+          &:after {
+            background-color: var(--color-selection);
+          }
+        }
+      }
+    }
+  }
+}

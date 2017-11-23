@@ -1,0 +1,55 @@
+{
+  "comments": false,
+  // same configuration with react-app preset,
+  // except the babel-plugin-syntax-dynamic-import, which collides with react-hot-loader
+  // (it is not necessary in webpack2)
+  "presets": [
+    ["env", {
+      "modules": false,
+      "uglify": true,
+      "useBuiltIns": true
+    }]
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        // class { handleClick = () => { } }
+        "transform-class-properties",
+        // { ...todo, completed: true }
+        ["transform-object-rest-spread", { "useBuiltIns": true }],
+        // Polyfills the runtime needed for async/await and generatorss
+        ["transform-runtime", {
+          "helpers": false,
+          "polyfill": false,
+          "regenerator": true,
+          "moduleName": "babel-runtime/package"
+        }],
+        ["transform-regenerator", {
+          // Async functions are converted to generators by babel-preset-latest
+          "async": false
+        }]
+      ]
+    },
+    "production": {
+      "plugins": [
+        // class { handleClick = () => { } }
+        "transform-class-properties",
+        // { ...todo, completed: true }
+        ["transform-object-rest-spread", { "useBuiltIns": true }],
+        // Polyfills the runtime needed for async/await and generators
+        ["transform-runtime", {
+          "helpers": false,
+          "polyfill": false,
+          "regenerator": true,
+          "moduleName": "babel-runtime/package"
+        }],
+        ["transform-regenerator", {
+          // Async functions are converted to generators by babel-preset-latest
+          "async": false
+        }],
+        "syntax-dynamic-import",
+        "./config/whichBuiltinsPlugin"
+      ]
+    }
+  }
+}
