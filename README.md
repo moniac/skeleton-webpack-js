@@ -54,6 +54,7 @@ You can execute the scripts below by `yarn run <script>` or `npm run <script>`.
 
 <summary><strong>Sadly</strong></summary>
 <p>Research about gzipped</p>
+<p>https://github.com/jantimon/html-webpack-harddisk-plugin</p>
 <p>Optimizejs [https://github.com/vigneshshanmugam/optimize-js-plugin]</p>
 <p>Purifycss</p>
 

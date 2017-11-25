@@ -11,7 +11,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
  * Require ./webpack.config.js and make a bundler from it
  */
 const webpackConfig = require('./config/webpack.config.development');
-const paths = require('./config/paths');
+const { port } = require('./config/paths');
 
 const bundler = webpack(webpackConfig);
 
@@ -45,7 +45,7 @@ browserSync({
   open: true,
   browser: 'chrome',
   minify: true,
-  port: paths.port,
+  port,
   notify: true,
   files: ['build/*.html']
 });
