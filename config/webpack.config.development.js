@@ -10,7 +10,7 @@ const {
 const baseConfig = require('./webpack.config.base.js');
 
 module.exports = webpackMerge(baseConfig, {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
   output: {
     path: build,
     filename: 'js/[name].bundle.js',

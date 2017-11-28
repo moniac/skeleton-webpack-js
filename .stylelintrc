@@ -4,7 +4,8 @@
     "stylelint-order"
   ],
   "rules": {
-    "order/properties-alphabetical-order": true,
+    "color-hex-length": "short",
+    "declaration-no-important": true,
     "block-closing-brace-newline-after": "always",
     "block-closing-brace-newline-before": "always",
     "block-opening-brace-newline-after": "always",
@@ -14,8 +15,11 @@
       }
     ],
     "declaration-block-semicolon-newline-after": "always",
+    "function-whitespace-after": "always",
     "indentation": 2,
+    "no-descending-specificity": true,
     "no-duplicate-selectors": true,
+    "order/properties-alphabetical-order": true,
     "rule-empty-line-before": ["always", {
       "except": ["first-nested", "after-single-line-comment"]
     }],
@@ -27,8 +31,5 @@
     "selector-max-class": 3,
     "selector-max-attribute": 1,
     "selector-max-id": 1,
-    "declaration-no-important": true,
-    "color-hex-length": "short",
-    "function-whitespace-after": "always"
   }
 }
