@@ -5,12 +5,21 @@ const webpackMerge = require('webpack-merge');
 const {
   context,
   build,
-  images
+  images,
+  script,
+  style
 } = require('./paths');
 const baseConfig = require('./webpack.config.base.js');
 
 module.exports = webpackMerge(baseConfig, {
   devtool: 'cheap-module-source-map',
+  entry: [
+    'babel-polyfill',
+    'webpack/hot/only-dev-server',
+    'webpack-hot-middleware/client',
+    script,
+    style
+  ],
   output: {
     path: build,
     filename: 'js/[name].bundle.js',

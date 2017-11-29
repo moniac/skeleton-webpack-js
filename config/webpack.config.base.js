@@ -1,20 +1,17 @@
 'use strict';
 
 const webpack = require('webpack');
-const { vendor, entries, pages } = require('./pages');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
   context,
-  fonts
+  fonts,
+  favicon,
+  template,
+  isVendor
 } = require('./paths');
-
-const entry = Object.assign({
-  vindex: ['jquery', 'dom4'],
-  vcontacts: ['dom4']
-}, entries);
 
 module.exports = {
   context,
-  entry,
   module: {
     rules: [
       {
@@ -45,8 +42,31 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    ...pages,
-    ...vendor,
+    new HtmlWebpackPlugin({
+      title: 'Movistar',
+      favicon,
+      inject: true,
+      hash: true,
+      template,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'js/vendor.js',
+      minChunks: (module, count) => count >= 2 && isVendor(module)
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',

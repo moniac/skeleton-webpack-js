@@ -6,7 +6,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const {
   context,
   build,
-  images
+  images,
+  script,
+  style,
+  vendor
 } = require('./paths');
 const baseConfig = require('./webpack.config.base.js');
 
@@ -16,6 +19,10 @@ const PurifyCSSPlugin = require('purifycss-webpack');
 */
 
 module.exports = webpackMerge(baseConfig, {
+  entry: {
+    app: [script, style],
+    vendor
+  },
   output: {
     path: build,
     filename: 'js/[name].bundle.js'
