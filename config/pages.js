@@ -20,7 +20,7 @@ const pages = fs.readdirSync(path.resolve(directory, 'src'))
     let template = file.split('.');
     let extension = template[1];
 
-    return (extension === 'pug');
+    return (extension === 'html');
   });
 
 // Javascript

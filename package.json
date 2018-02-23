@@ -8,8 +8,7 @@
     "start": "cross-env BABEL_ENV=development NODE_ENV=development node server.js",
     "build": "npm run clean && cross-env NODE_ENV=production BABEL_ENV=production webpack --display-error-details -p --config=config/webpack.config.production.js",
     "lintjs": "eslint src/javascript",
-    "lintcss": "stylelint src/styles/**/*.*",
-    "lintpug": "pug-lint src"
+    "lintcss": "stylelint src/styles/**/*.*"
   },
   "keywords": [
     "skeleton-webpack-js",
@@ -20,8 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "6.26.0",
-    "dom4": "^1.8.5",
-    "jquery": "^3.2.1"
+    "dom4": "^1.8.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -54,10 +52,6 @@
     "precss": "^2.0.0",
     "prettier": "^1.8.2",
     "prettier-loader": "^2.0.1",
-    "pug": "^2.0.0-rc.4",
-    "pug-lint": "2.5.0",
-    "pug-lint-config-clock": "2.0.0",
-    "pug-loader": "^2.3.0",
     "purify-css": "1.2.5",
     "purifycss-webpack": "^0.7.0",
     "rimraf": "^2.6.2",

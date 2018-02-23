@@ -1,6 +1,6 @@
 # Skeleton-Webpack-Js
 
-Originally made by https://github.com/moniac/skeleton-webpack-js/commits?author=infantito, trying to customize it to my needs right now.
+Skeleton-Webpack-Js is a lightweight pug - js - posctcss or sass boilerplate that uses Webpack, url-loader, postcss-loader, image-webpack-loader, babel-preset-env and linters have been configured to this project by default.
 
 ## Requirement
 

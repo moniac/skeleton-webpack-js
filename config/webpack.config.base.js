@@ -8,7 +8,7 @@ const {
 } = require('./paths');
 
 const entry = Object.assign({
-  vindex: ['jquery', 'dom4'],
+  vindex: ['dom4'],
   vcontacts: ['dom4']
 }, entries);
 
@@ -17,12 +17,6 @@ module.exports = {
   entry,
   module: {
     rules: [
-      {
-        test: /\.pug/,
-        include: context,
-        exclude: [/node_modules/],
-        use: ['pug-loader']
-      },
       {
         test: /\.js?$/,
         include: context,
@@ -46,12 +40,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     ...pages,
-    ...vendor,
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
-    })
+    ...vendor
   ],
   resolve: {
     modules: [
